@@ -82,6 +82,7 @@ markmap:
 - [FastAPI](https://github.com/tiangolo/fastapi): Web framework (backend)
 - [Pydantic](https://github.com/pydantic/pydantic): Python type checking at runtime
 - [SQLModel](https://github.com/tiangolo/sqlmodel): ORM for FastAPI
+- [Alembic](https://github.com/sqlalchemy/alembic): database migrations
 - [Logfire](https://pydantic.dev/logfire): observability platform, logging, performance metrics
 - [Postgres](https://github.com/postgres/postgres): SQL database
 - [Redis](https://github.com/redis/redis): in-memory database that persists on disk
@@ -151,11 +152,14 @@ markmap:
 - [ffn](https://github.com/pmorissette/ffn): Financial Functions for Python
 - [dirty-equals](https://github.com/samuelcolvin/dirty-equals): (mis)uses the `__eq__` method to make python code (generally unit tests) more declarative and therefore easier to read and write
 - [pandas_market_calendars](https://github.com/rsheftel/pandas_market_calendars): Market calendars to use with Pandas
+- [OpenBBTerminal](https://github.com/OpenBB-finance/OpenBBTerminal)
 
 ## Resources
 
 - [Awesome Python](https://github.com/vinta/awesome-python)
-- [OpenBBTerminal](https://github.com/OpenBB-finance/OpenBBTerminal)
+- [Youtube: FastAPI Course](https://www.youtube.com/watch?v=Lw-zLopB3o0&list=PL-2EBeDYMIbQghmnb865lpdmYyWU3I5F1)
+- [Youtube: Fastapi with FastUI & SQLModel](https://www.youtube.com/watch?v=XTn6esHGwe0&t)
+- [Youtube: Fastapi with FastUI & Pydantic](https://www.youtube.com/watch?v=eBWrnSyN2iws)
 
 ## Broker APIs
 
