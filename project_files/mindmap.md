@@ -137,6 +137,13 @@ markmap:
 - [time-machine](https://github.com/adamchainz/time-machine): Travel through time in your tests
 - [Faker](https://github.com/joke2k/faker): Generate fake data
 
+### Benchmarking
+
+- [timeit](https://docs.python.org/3/library/timeit.html): Measure execution time of small code snippets
+- [pyperf](https://github.com/psf/pyperf): Toolkit to run Python benchmarks
+- [pyperformance](https://github.com/python/pyperformance): The Python Benchmark Suite
+- [pytest-benchmark](https://github.com/ionelmc/pytest-benchmark): py.test fixture for benchmarking code
+
 #### CI/CD
 
 - [Hatch](https://github.com/pypa/hatch): Modern, extensible Python project management 
