@@ -133,6 +133,7 @@ markmap:
 
 - [Tox](https://github.com/tox-dev/tox): Unit testing framework
 - [Nox](https://github.com/wntrblm/nox): Unit testing framework
+- [pytest](https://github.com/pytest-dev/pytest/): testing framework
 - [time-machine](https://github.com/adamchainz/time-machine): Travel through time in your tests
 - [Faker](https://github.com/joke2k/faker): Generate fake data
 
