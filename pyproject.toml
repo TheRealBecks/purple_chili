@@ -1,0 +1,17 @@
+[project]
+name = "purple-chili"
+requires-python = "==3.12"
+dependencies = [
+  "fastapi==0.111.0",
+  "fastui==0.6.0",
+  "logfire==0.46.1",
+  "pydantic==2.8.2",
+  "sqlmodel==0.0.19",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.2.2",
+  "ruff==0.5.1",
+  "uv==0.2.24",
+]

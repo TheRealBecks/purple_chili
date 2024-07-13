@@ -168,6 +168,8 @@ markmap:
 - [Youtube: FastAPI Course](https://www.youtube.com/watch?v=Lw-zLopB3o0&list=PL-2EBeDYMIbQghmnb865lpdmYyWU3I5F1)
 - [Youtube: Fastapi with FastUI & SQLModel](https://www.youtube.com/watch?v=XTn6esHGwe0&t)
 - [Youtube: Fastapi with FastUI & Pydantic](https://www.youtube.com/watch?v=eBWrnSyN2iws)
+- [fastapi-best-practices](https://github.com/zhanymkanov/fastapi-best-practices)
+- [uv](https://samedwardes.com/2024/04/21/python-uv-workflow/): Replacing pip with uv for Python projects
 
 ## Broker APIs
 
