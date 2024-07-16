@@ -170,6 +170,7 @@ markmap:
 - [Youtube: Fastapi with FastUI & Pydantic](https://www.youtube.com/watch?v=eBWrnSyN2iws)
 - [fastapi-best-practices](https://github.com/zhanymkanov/fastapi-best-practices)
 - [uv](https://samedwardes.com/2024/04/21/python-uv-workflow/): Replacing pip with uv for Python projects
+- [Youtube: Local Docker Environment](https://www.youtube.com/watch?v=zkMRWDQV4Tg)
 
 ## Broker APIs
 
