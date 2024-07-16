@@ -1,4 +1,4 @@
-# purple_chili
+# Purple Chili
 
 Trading software with web UI and Purple Chili flavor!
 
@@ -23,12 +23,12 @@ source .venv/bin/activate
 
 Compile the development dependencies:
 ```
-uv pip install -r requirements-dev.txt
+uv pip compile pyproject.toml --quiet --extra dev -o requirements-dev.txt
 ```
 
 Install development dependencies:
 ```
-uv pip compile pyproject.toml --quiet --extra dev -o requirements-dev.txt
+uv pip install -r requirements-dev.txt
 ```
 
 ## Install a local Development Environment with existing requirements-dev.txt
@@ -45,6 +45,5 @@ source .venv/bin/activate
 
 Install development dependencies:
 ```
-uv pip compile pyproject.toml --quiet --extra dev -o requirements-dev.txt
 uv pip install -r requirements-dev.txt
 ```
