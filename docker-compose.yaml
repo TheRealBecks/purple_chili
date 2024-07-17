@@ -16,9 +16,6 @@ services:
 
   purple_chili_app:
     image: python:3.12
-    # build:
-    #   context: .
-    #   dockerfile: docker/purple_chili_app/Dockerfile
     ports:
       - 8000:8000
     volumes:
