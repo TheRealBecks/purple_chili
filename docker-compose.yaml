@@ -1,3 +1,4 @@
+name: purple_chili_dev
 services:
   postgres:
     image: postgres:16.3
