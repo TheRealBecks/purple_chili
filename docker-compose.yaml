@@ -1,0 +1,30 @@
+name: purple_chili_dev
+services:
+  postgres:
+    image: postgres:16.3
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  purple_chili_app:
+    image: python:3.12
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+    command: >
+      bash -c "cd /app
+      && pip install --no-cache-dir uv
+      && uv pip install --system --no-cache -r requirements-dev.txt
+      && fastapi dev purple_chili/app/main.py --host 0.0.0.0 --port 8000"
