@@ -71,7 +71,7 @@ podman pod stop pod_purple_chili_dev
 
 Start the pod with all containers again:
 ```
-podman pod up pod_purple_chili_dev
+podman pod start pod_purple_chili_dev
 ```
 
 ### Purple Chili App and Documentation
