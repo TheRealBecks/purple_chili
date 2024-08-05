@@ -18,9 +18,5 @@ def create_hero(hero: Hero) -> Hero:
 
 @router.get("/")
 def read_heroes():
-    print("ja")
     with Session(engine) as session:
-        print("hier")
-        print(session.exec(select(Hero)).all())
-        print("da")
         return session.exec(select(Hero)).all()
