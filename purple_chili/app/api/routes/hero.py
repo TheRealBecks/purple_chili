@@ -1,3 +1,5 @@
+from typing import Sequence
+
 from fastapi import APIRouter
 from sqlmodel import Session, select
 
@@ -17,6 +19,6 @@ def create_hero(hero: Hero) -> Hero:
 
 
 @router.get("/")
-def read_heroes():
+def read_heroes() -> Sequence[Hero]:
     with Session(engine) as session:
         return session.exec(select(Hero)).all()
