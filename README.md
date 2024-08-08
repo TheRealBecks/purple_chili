@@ -2,14 +2,14 @@
 
 Trading software with web UI and Purple Chili flavor!
 
-# Development
+## Development
 
 Install `uv` as package installer:
 ```
 pip install --user uv
 ```
 
-## Create a local Development Environment and compile new requirements-dev.txt
+### Create a local Development Environment and compile new requirements-dev.txt
 
 Create a new virtual environment with `uv`:
 ```
@@ -31,7 +31,7 @@ Install development dependencies:
 uv pip install -r requirements-dev.txt
 ```
 
-## Install a local Development Environment with existing requirements-dev.txt
+### Install a local Development Environment with existing requirements-dev.txt
 
 Create a new virtual environment with `uv`:
 ```
@@ -48,7 +48,12 @@ Install development dependencies:
 uv pip install -r requirements-dev.txt
 ```
 
-## Podman
+Or update your already installed dependencies:
+```
+uv pip sync requirements-dev.txt
+```
+
+### Podman
 
 You can use Podman or Docker. For simplicity the commands will be written for Podman. The commands for Docker may differ.
 
@@ -66,5 +71,13 @@ podman pod stop pod_purple_chili_dev
 
 Start the pod with all containers again:
 ```
-podman pod up pod_purple_chili_dev
+podman pod start pod_purple_chili_dev
 ```
+
+### Purple Chili App and Documentation
+
+The Purple Chili app can now be accessed via [http://localhost:8000](http://localhost:8000).
+
+The API endpoint documentations can be found here:
+- [Swagger UI](http://localhost:8000/docs)
+- [Redoc](http:/localhost:8000/redoc)
