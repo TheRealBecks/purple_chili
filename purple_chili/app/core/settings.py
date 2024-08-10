@@ -1,3 +1,5 @@
+"""Parse settings from .env file and set up `settings` object."""
+
 import secrets
 from typing import Annotated, Literal
 
@@ -12,7 +14,7 @@ def _parse_cors(v: str) -> list[str]:
 
 
 class Settings(BaseSettings):
-    """Settings."""
+    """Create Settings from .env file."""
 
     model_config = SettingsConfigDict(env_file=".env", env_ignore_empty=True, extra="ignore")
     API_V1_STR: str = "/api/v1"
@@ -22,9 +24,10 @@ class Settings(BaseSettings):
     DOMAIN: str = "localhost"
     ENVIRONMENT: Literal["development", "production"] = "development"
 
-    @computed_field  # type: ignore[prop-decorator]
+    @computed_field
     @property
-    def server_host(self) -> str:
+    def SERVER_HOST(self) -> str:  # noqa: N802
+        """Return URL ofserver host as HTTP or HTTPS."""
         # Use HTTPS for anything other than local development
         if self.ENVIRONMENT == "development":
             return f"http://{self.DOMAIN}"
@@ -44,9 +47,10 @@ class Settings(BaseSettings):
 
     LOGFIRE_TOKEN: str = "changeme"
 
-    @computed_field  # type: ignore[prop-decorator]
+    @computed_field
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> PostgresDsn:  # noqa: N802
+        """Create Postgres database URI."""
         return MultiHostUrl.build(
             scheme="postgresql+psycopg",
             host=self.POSTGRES_SERVER,

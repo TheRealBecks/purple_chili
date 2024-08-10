@@ -1,3 +1,5 @@
+"""FastAPI app."""
+
 import logfire
 from fastapi import FastAPI
 

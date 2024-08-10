@@ -1,3 +1,5 @@
+"""Routers for the app."""
+
 from fastapi import APIRouter
 
 from app.api.routes import hero
