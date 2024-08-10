@@ -81,3 +81,4 @@ The Purple Chili app can now be accessed via [http://localhost:8000](http://loca
 The API endpoint documentations can be found here:
 - [Swagger UI](http://localhost:8000/docs)
 - [Redoc](http:/localhost:8000/redoc)
+- [Logfire](https://logfire.pydantic.dev)

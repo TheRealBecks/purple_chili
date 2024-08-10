@@ -42,6 +42,8 @@ class Settings(BaseSettings):
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str = "changeme"
 
+    LOGFIRE_TOKEN: str = "changeme"
+
     @computed_field  # type: ignore[prop-decorator]
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> PostgresDsn:  # noqa: N802
@@ -58,6 +60,8 @@ class Settings(BaseSettings):
 settings = Settings()
 
 # Check if unsafe defaults exist
-if "changeme" in [settings.FIRST_SUPERUSER_PASSWORD, settings.POSTGRES_PASSWORD]:
-    msg: str = "Do not use default values for secrets, please change all secrets with value of 'changeme'"
+if "changeme" in [settings.FIRST_SUPERUSER_PASSWORD, settings.POSTGRES_PASSWORD, settings.LOGFIRE_TOKEN]:
+    msg: str = (
+        "Do not use default values for secrets (passwords, tokens), please change all secrets with value of 'changeme'"
+    )
     raise ValueError(msg)
