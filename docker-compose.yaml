@@ -1,14 +1,14 @@
-name: ${DOCKER_IMAGE?Variable not set}
+name: ${DOCKER_IMAGE?DOCKER_IMAGE variable not set}
 services:
   postgres:
     image: postgres:16.3
     restart: always
     shm_size: 128mb
     environment:
-      - POSTGRES_PORT=${POSTGRES_PORT?Variable not set}
-      - POSTGRES_DB=${POSTGRES_DB?Variable not set}
-      - POSTGRES_USER=${POSTGRES_USER?Variable not set}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?Variable not set}
+      - POSTGRES_PORT=${POSTGRES_PORT?POSTGRES_PORT variable not set}
+      - POSTGRES_DB=${POSTGRES_DB?POSTGRES_DB variable not set}
+      - POSTGRES_USER=${POSTGRES_USER?POSTGRES_USER variable not set}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?POSTGRES_PASSWORD variable not set}
 
   adminer:
     image: adminer
@@ -30,4 +30,4 @@ services:
       bash -c "cd /app
       && pip install --no-cache-dir uv
       && uv pip install --system --no-cache -r requirements-dev.txt
-      && fastapi dev purple_chili/app/main.py --host 0.0.0.0 --port 8000"
+      && fastapi dev app/main.py --host 0.0.0.0 --port 8000"
