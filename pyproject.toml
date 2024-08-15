@@ -20,6 +20,10 @@ dev = [
   "uv==0.2.34",
 ]
 
+[tool.purple-chili]
+HTMX_VERSION = "2.0.2"
+DAISYUI_VERSION = "4.12.10"
+
 [tool.ruff]
 line-length = 120
 target-version = "py312"
