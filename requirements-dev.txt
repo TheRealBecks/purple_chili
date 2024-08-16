@@ -20,6 +20,8 @@ click==8.1.7
     # via
     #   typer
     #   uvicorn
+debugpy==1.8.5
+    # via purple-chili (pyproject.toml)
 deprecated==1.2.14
     # via
     #   opentelemetry-api
@@ -31,9 +33,13 @@ email-validator==2.2.0
 executing==2.0.1
     # via logfire
 fastapi==0.112.0
-    # via purple-chili (pyproject.toml)
+    # via
+    #   purple-chili (pyproject.toml)
+    #   fasthx
 fastapi-cli==0.0.5
     # via fastapi
+fasthx==1.1.1
+    # via purple-chili (pyproject.toml)
 googleapis-common-protos==1.63.2
     # via opentelemetry-exporter-otlp-proto-http
 greenlet==3.0.3
@@ -213,6 +219,7 @@ typer==0.12.3
 typing-extensions==4.12.2
     # via
     #   fastapi
+    #   fasthx
     #   logfire
     #   opentelemetry-sdk
     #   psycopg

@@ -13,17 +13,42 @@ from pydantic_settings import (
 )
 
 
+class SettingsModelConfig(BaseSettings):
+    """Create Model for .env file and pyproject.toml file."""
+
+    model_config = SettingsConfigDict(
+        env_file=".env", env_ignore_empty=True, pyproject_toml_table_header=("tool", "purple-chili"), extra="ignore"
+    )
+
+    @classmethod
+    def settings_customise_sources(
+        cls,
+        settings_cls: type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,
+        env_settings: PydanticBaseSettingsSource,
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,
+    ) -> tuple[PydanticBaseSettingsSource, ...]:
+        """Customise settings sources."""
+        return (
+            init_settings,
+            env_settings,
+            dotenv_settings,
+            file_secret_settings,
+            PyprojectTomlConfigSettingsSource(settings_cls),
+        )
+
+
 def _parse_cors(v: str) -> list[str]:
     """Parse CORS (Cross-Origin Resource Sharing) string."""
     return [i.strip() for i in v.split(",")]
 
 
-class Settings(BaseSettings):
-    """Create Settings from .env file."""
+class BackendSettings(SettingsModelConfig):
+    """Backend settings."""
 
-    model_config = SettingsConfigDict(
-        env_file=".env", env_ignore_empty=True, pyproject_toml_table_header=("tool", "purple-chili"), extra="ignore"
-    )
+    DEBUG: bool = False
+
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: str = secrets.token_urlsafe(32)
     # 60 minutes * 24 hours * 8 days = 8 days
@@ -67,38 +92,34 @@ class Settings(BaseSettings):
 
     LOGFIRE_TOKEN: str = "changeme"
 
-    HTMX_VERSION: str = "changeme_project"
+
+class FrontendSettings(SettingsModelConfig):
+    """Frontend settings."""
+
     DAISYUI_VERSION: str = "changeme_project"
-
-    @classmethod
-    def settings_customise_sources(
-        cls,
-        settings_cls: type[BaseSettings],
-        init_settings: PydanticBaseSettingsSource,
-        env_settings: PydanticBaseSettingsSource,
-        dotenv_settings: PydanticBaseSettingsSource,
-        file_secret_settings: PydanticBaseSettingsSource,
-    ) -> tuple[PydanticBaseSettingsSource, ...]:
-        """Customise settings sources."""
-        return (
-            init_settings,
-            env_settings,
-            dotenv_settings,
-            file_secret_settings,
-            PyprojectTomlConfigSettingsSource(settings_cls),
-        )
+    FEATHER_ICONS_VERSION: str = "changeme_project"
+    HTMX_VERSION: str = "changeme_project"
 
 
-settings = Settings()
+backend_settings = BackendSettings()
+frontend_settings = FrontendSettings()
 
-# Check if wrong defaults exist is project settings
-if "changeme_project" in settings.model_dump().values():
-    msg: str = "Wrong defaults exist in project settings, please change all secrets with value of 'changeme_project'"
+# Check if wrong defaults exist in project settings
+if (
+    "changeme_project" in backend_settings.model_dump().values()
+    or "changeme_project" in frontend_settings.model_dump().values()
+):
+    msg: str = "Wrong defaults exist in project settings, please change all variables with value of 'changeme_project'"
     raise ValueError(msg)
 
 # Check if wrong defaults exist is user settings
-if "changeme" in settings.model_dump().values():
+if "changeme" in backend_settings.model_dump().values() or "changeme" in frontend_settings.model_dump().values():
     msg: str = (
         "Do not use default values for secrets (passwords, tokens), please change all secrets with value of 'changeme'"
     )
+    raise ValueError(msg)
+
+# DEBUG mode is only allowed when running in development mode
+if backend_settings.DEBUG and backend_settings.ENVIRONMENT != "development":
+    msg: str = "DEBUG mode is only allowed when running in development mode"
     raise ValueError(msg)

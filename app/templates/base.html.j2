@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Chili</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@{{ frontend_settings.DAISYUI_VERSION }}/dist/full.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@{{ frontend_settings.HTMX_VERSION }}/dist/htmx.min.js"></script>
+    <script
+        src=" https://cdn.jsdelivr.net/npm/feather-icons@{{ frontend_settings.FEATHER_ICONS_VERSION }}/dist/feather.min.js "></script>
+
+</head>
+
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+    <div class="mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

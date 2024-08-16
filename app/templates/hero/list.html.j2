@@ -1,0 +1,30 @@
+{% extends 'base.html.j2' %}
+
+{% block content %}
+
+<div class="flex flex-col items-center mx-10 md:mx-20">
+    <h1 class="prose-2xl mb-4">Example</h1>
+
+    <table class="table table-zebra table-lg">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Secret Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="hero-table-body">
+            {% for hero in items %}
+            <tr>
+                <td>{{ hero.name }}</td>
+                <td>{{ hero.secret_name }}</td>
+                <td>{{ hero.age }}</td>
+                <td>Nix</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -57,9 +57,14 @@ uv pip sync requirements-dev.txt
 
 You can use Podman or Docker. For simplicity the commands will be written for Podman. The commands for Docker may differ.
 
-Build and start a new Podman pod:
+Build will start a new Podman pod without Python debugging:
 ```
-podman compose up --build
+podman compose -f docker-compose-development.yaml up --build
+```
+
+And with debugging:
+```
+podman compose -f docker-compose-development-debug.yaml up --build
 ```
 
 This will create the pod `pod_purple_chili_dev`
