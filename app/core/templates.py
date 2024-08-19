@@ -9,7 +9,7 @@ from fasthx import Jinja
 from app.core.settings import frontend_settings
 
 
-def frontent_settings_context(request: Request) -> dict[str, str]:
+def frontent_settings_context(request: Request) -> dict[str, str]:  # noqa: ARG001
     """Return frontend_settings as Jinja context."""
     jinja_context: dict[str, Any] = {}
     jinja_context["frontend_settings"] = frontend_settings.model_dump()

@@ -1,0 +1,47 @@
+<div class="drawer-side">
+    <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+    <nav>
+        <ul class="menu menu-vertical bg-base-200 text-base-content min-h-full w-80 p-4">
+            <li class="mb-2 font-semibold text-xl">
+                <a href="#">
+                    <img class="mask mask-squircle w-10"
+                        src="{{ url_for('static', path='/purple_chili_logo_416px.png') }}"
+                        alt="Purple Chili Logo">Purple Chili
+                </a>
+            </li>
+            <li>
+                <details open>
+                    <summary class="font-semibold text-lg">Hero</summary>
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('read_heroes') }}" class="active font-semibold ring-2">
+                                <i class="ti ti-http-get text-xl"></i> Get/List Heroes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="ti ti-http-post text-xl"></i> Post/Create Hero
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="ti ti-http-put text-xl"></i> Put/Fully update Hero
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="ti ti-http-patch text-xl"></i> Patch/Partly update Hero
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="ti ti-http-delete text-xl"></i> Delete Hero
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li><a>Example Navigation Item</a></li>
+        </ul>
+    </nav>
+</div>

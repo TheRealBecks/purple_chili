@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purple Chili</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@{{ frontend_settings.DAISYUI_VERSION }}/dist/full.min.css"
         rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -18,9 +19,16 @@
 
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 
-    <div class="mt-4">
-        {% block content %}
-        {% endblock %}
+    <div class="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col items-center justify-center">
+            {% block content %}
+            {% endblock %}
+            <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+                Open menu
+            </label>
+        </div>
+        {% include "menu.html.j2" %}
     </div>
 
 </body>

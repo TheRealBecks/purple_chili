@@ -21,7 +21,6 @@ logfire.instrument_fastapi(app)
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
-app.include_router(api_router, prefix=backend_settings.API_V1_STR)
 app.include_router(api_router)
 
 # This code will be used by the Python debugger
